@@ -1,0 +1,7 @@
+<class_libraries>
+  <library path="moveit_ros_control_interface_trajectory_plugin">
+    <class name="position_controllers/JointGroupPositionController" type="moveit_ros_control_interface::ForwardPositionControllerAllocator" base_class_type="moveit_ros_control_interface::ControllerHandleAllocator">
+        <description></description>
+    </class>
+  </library>
+</class_libraries>
