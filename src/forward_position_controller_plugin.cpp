@@ -119,17 +119,9 @@ private:
       for (std::size_t index = 0; index < joint_indices.size(); ++index) {
         msg.data[index] = current_waypoint.positions[joint_indices[index]];
       }
-      RCLCPP_ERROR_STREAM(node_->get_logger(), std_msgs::msg::to_yaml(msg));
       multi_array_publisher_->publish(msg);
 
       // Wait until it's time to execute this waypoint or until stopped
-      RCLCPP_ERROR_STREAM(node_->get_logger(),
-                          "Waiting for "
-                              << (rclcpp::Duration(
-                                      current_waypoint.time_from_start) -
-                                  previous_duration)
-                                     .to_chrono<std::chrono::duration<double>>()
-                                     .count());
       const auto current_duration =
           rclcpp::Duration(current_waypoint.time_from_start);
       {
